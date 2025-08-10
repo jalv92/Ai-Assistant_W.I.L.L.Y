@@ -1,0 +1,48 @@
+{
+  "repository": {
+    "owner": "jalv92",
+    "name": "Ai-Assistant_W.I.L.L.Y",
+    "defaultBranch": "master",
+    "url": "https://github.com/jalv92/Ai-Assistant_W.I.L.L.Y"
+  },
+  "gitOperations": {
+    "localCommands": {
+      "status": "git status",
+      "add": "git add",
+      "commit": "git commit",
+      "pull": "git pull origin master --rebase",
+      "branch": "git branch",
+      "checkout": "git checkout",
+      "log": "git log --oneline -10",
+      "diff": "git diff"
+    },
+    "pushMethod": "MCP_GITHUB_API",
+    "pushCommands": {
+      "singleFile": "mcp__github-mcp__create_or_update_file",
+      "multipleFiles": "mcp__github-mcp__push_files"
+    }
+  },
+  "workflow": {
+    "beforePush": [
+      "Verificar cambios con 'git status'",
+      "Hacer commit local con 'git commit'",
+      "Obtener lista de archivos modificados",
+      "Leer contenido de cada archivo"
+    ],
+    "pushSteps": [
+      "Usar mcp__github-mcp__push_files con todos los archivos",
+      "Verificar push exitoso en GitHub",
+      "Sincronizar con 'git pull --rebase'"
+    ]
+  },
+  "warnings": {
+    "critical": "NUNCA usar 'git push' directamente - SIEMPRE fallará",
+    "solution": "Usar herramientas MCP de GitHub para todos los push"
+  },
+  "helpers": {
+    "getModifiedFiles": "git diff --name-only HEAD~1",
+    "getStagedFiles": "git diff --cached --name-only",
+    "getFileContent": "cat {filename}",
+    "checkRemoteStatus": "git fetch && git status -uno"
+  }
+}
