@@ -1,0 +1,93 @@
+{
+  "name": "WILLY Assistant",
+  "description": "An intelligent personal assistant with futuristic 3D interface, biometric authentication, and voice commands",
+  "version": "1.0.0",
+  "type": "react-vite",
+  "features": {
+    "three-d": true,
+    "pwa": true,
+    "voice": true,
+    "biometric": true,
+    "realtime": true
+  },
+  "tech_stack": {
+    "frontend": [
+      "React 18",
+      "Vite",
+      "Three.js",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "backend": [
+      "Supabase",
+      "N8N Webhooks",
+      "Netlify Functions"
+    ],
+    "authentication": [
+      "WebAuthn",
+      "Face ID",
+      "Touch ID"
+    ]
+  },
+  "color_scheme": {
+    "primary": "#00ffff",
+    "secondary": "#0080ff",
+    "success": "#00ff00",
+    "error": "#ff0000",
+    "background": "#0a0a0a"
+  },
+  "deployment": {
+    "platform": "Netlify",
+    "environment": "production",
+    "auto_deploy": true
+  },
+  "agents": {
+    "ui_agent": {
+      "priority": "high",
+      "domain": "components/ui",
+      "responsibilities": "Interface and visual components"
+    },
+    "core_agent": {
+      "priority": "high",
+      "domain": "business logic",
+      "responsibilities": "Core functionality and state management"
+    },
+    "3d_agent": {
+      "priority": "medium",
+      "domain": "components/3d",
+      "responsibilities": "Three.js visualizations"
+    },
+    "auth_agent": {
+      "priority": "high",
+      "domain": "authentication",
+      "responsibilities": "Security and authentication"
+    },
+    "integration_agent": {
+      "priority": "medium",
+      "domain": "services",
+      "responsibilities": "External integrations"
+    },
+    "voice_agent": {
+      "priority": "medium",
+      "domain": "voice",
+      "responsibilities": "Voice recognition and synthesis"
+    },
+    "problem_solver": {
+      "priority": "high",
+      "domain": "debugging",
+      "responsibilities": "Bug fixing and optimization"
+    }
+  },
+  "commands": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "preview": "npm run preview",
+    "test": "npm test",
+    "deploy": "netlify deploy --prod"
+  },
+  "documentation": {
+    "readme": "/README.md",
+    "claude": "/CLAUDE.md",
+    "api": "/docs/api.md"
+  }
+}

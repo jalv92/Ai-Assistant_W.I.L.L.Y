@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables */
+:root {
+  --willy-primary: #00ffff;
+  --willy-secondary: #0080ff;
+  --willy-success: #00ff00;
+  --willy-error: #ff0000;
+  --willy-dark: #0a0a0a;
+  --willy-darker: #1a1a2e;
+  --willy-light: #ffffff;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply m-0 p-0 font-sans antialiased;
+    @apply bg-willy-gradient text-white/90;
+    @apply overflow-x-hidden;
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-willy-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-willy-primary/30 rounded-full;
+    @apply hover:bg-willy-primary/50;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-willy-primary/30 text-willy-primary;
+  }
+
+  /* Focus Styles */
+  :focus {
+    @apply outline-none;
+  }
+
+  :focus-visible {
+    @apply ring-2 ring-willy-primary ring-offset-2 ring-offset-willy-dark;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Futuristic Button */
+  .btn-futuristic {
+    @apply relative px-6 py-3 font-tech text-sm uppercase tracking-wider;
+    @apply bg-black/30 border border-willy-primary/30 rounded-lg;
+    @apply hover:bg-willy-primary/10 hover:border-willy-primary;
+    @apply transition-all duration-300 ease-out;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-futuristic::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg;
+    @apply bg-gradient-to-r from-transparent via-willy-primary/10 to-transparent;
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-futuristic:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Glow Card */
+  .glow-card {
+    @apply relative bg-black/40 backdrop-blur-xl;
+    @apply border border-willy-primary/20 rounded-xl;
+    @apply transition-all duration-300;
+  }
+
+  .glow-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl;
+    @apply bg-gradient-to-r from-willy-primary/0 via-willy-primary/5 to-willy-primary/0;
+    @apply animate-pulse;
+  }
+
+  .glow-card:hover {
+    @apply border-willy-primary/40;
+    @apply shadow-[0_0_30px_rgba(0,255,255,0.2)];
+  }
+
+  /* Holographic Text */
+  .text-hologram {
+    @apply relative bg-gradient-to-r from-willy-primary via-willy-secondary to-willy-primary;
+    @apply bg-clip-text text-transparent;
+    @apply animate-pulse;
+    background-size: 200% auto;
+    animation: hologram 3s linear infinite;
+  }
+
+  /* Scanner Line */
+  .scanner-line {
+    @apply absolute w-full h-0.5;
+    @apply bg-gradient-to-r from-transparent via-willy-primary to-transparent;
+    animation: scan 3s linear infinite;
+  }
+
+  /* Tech Grid Background */
+  .tech-grid {
+    @apply relative;
+    background-image: 
+      linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Neon Border */
+  .neon-border {
+    @apply relative border-2 border-willy-primary/50;
+    box-shadow: 
+      0 0 10px rgba(0, 255, 255, 0.5),
+      inset 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+
+  /* Loading Dots */
+  .loading-dots {
+    @apply inline-flex space-x-1;
+  }
+
+  .loading-dots span {
+    @apply w-2 h-2 bg-willy-primary rounded-full;
+    animation: pulse 1.4s infinite ease-in-out both;
+  }
+
+  .loading-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .loading-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+}
+
+/* Utility Styles */
+@layer utilities {
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md;
+    @apply border border-white/10;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-willy-primary to-willy-secondary;
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Cyber Shadow */
+  .cyber-shadow {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 255, 0.8),
+      0 0 20px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 255, 255, 0.4);
+  }
+
+  /* Glitch Effect */
+  .glitch {
+    @apply relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.3s infinite;
+    @apply text-willy-primary;
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.3s infinite;
+    @apply text-willy-secondary;
+    z-index: -2;
+  }
+
+  /* Responsive Text */
+  .text-responsive {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+  }
+
+  /* Safe Area Padding for Mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Animations */
+@keyframes hologram {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  20% { clip-path: inset(20% 0 30% 0); }
+  40% { clip-path: inset(50% 0 20% 0); }
+  60% { clip-path: inset(10% 0 60% 0); }
+  80% { clip-path: inset(80% 0 5% 0); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(20% 0 60% 0); }
+  60% { clip-path: inset(80% 0 10% 0); }
+  80% { clip-path: inset(10% 0 80% 0); }
+}
+
+/* Media Queries */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .no-print {
+    @apply hidden;
+  }
+}

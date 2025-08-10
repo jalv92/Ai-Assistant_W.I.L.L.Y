@@ -1,0 +1,93 @@
+{
+  "name": "WILLY Personal Assistant",
+  "short_name": "WILLY",
+  "description": "Your intelligent personal assistant with futuristic interface",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#00ffff",
+  "background_color": "#0a0a0a",
+  "id": "com.willy.assistant",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities"],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "icons": [
+    {
+      "src": "/willy-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/willy-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/willy-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Home screen with 3D orb"
+    },
+    {
+      "src": "/screenshots/auth.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "label": "Biometric authentication"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Voice Command",
+      "short_name": "Voice",
+      "description": "Start voice command",
+      "url": "/?voice=true",
+      "icons": [{ "src": "/willy-icon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Open settings",
+      "url": "/settings",
+      "icons": [{ "src": "/willy-icon.svg", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "protocol_handlers": [
+    {
+      "protocol": "willy",
+      "url": "/?command=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "file",
+          "accept": ["*/*"]
+        }
+      ]
+    }
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
