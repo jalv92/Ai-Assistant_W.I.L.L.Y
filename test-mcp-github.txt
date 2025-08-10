@@ -1,0 +1,3 @@
+Test file creado via MCP GitHub
+Fecha: 2025-08-10
+Propósito: Verificar funcionamiento del MCP
